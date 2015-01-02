@@ -1,0 +1,17 @@
+{{> sidebar}}
+
+<div class="main" role="main">
+  <div class="posts">
+    <ul class="posts-list">
+      {{#each content}}
+      <li>
+        <a href="/{{file}}">
+          <h2 class="posts-title">{{title}}</h2>
+          <span class="posts-date">{{basePath}}</span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>       
+  </div>
+</div>
+     
