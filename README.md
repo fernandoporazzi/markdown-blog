@@ -10,7 +10,7 @@ First of all, you need install all dependencies.
 
 After installing dependencies, you can run the application by typing the next:
     
-    $ supervisor app.js
+    $ node app.js
 
 **Why supervisor and not node?** When starting the application with supervisor, you don't need to restart your server in every code change. It does it automatically.
 
