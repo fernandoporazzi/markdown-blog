@@ -8,11 +8,9 @@ var marked = require('marked'),
 
 exports.index = function (req, res) {
 
-  res.render('home', {
-
+  return res.render('home', {
     pageTitle: 'Blog',
     content: entryService.getEntries()
-  
   });
 
 };
@@ -23,29 +21,19 @@ exports.entry = function (req, res) {
     uri = './entries/' + entry.basePath + '/' + entry.file + '.markdown';
 
   fs.readFile(uri, function (err, data) {
-  
-    if (err) {
-  
-      res.render('not-found', {
 
+    if (err) {
+      return res.render('not-found', {
         pageTitle: 'Post Not Found',
         randomPost: entryService.getRandomEntrie()
-
       });
-  
-    } else {
-  
-      console.log();
-
-      res.render('entry', {
-  
-        pageTitle: entry.title,
-        content: marked(decoder.write(data))
-
-      });
-  
     }
-  
+
+    return res.render('entry', {
+      pageTitle: entry.title,
+      content: marked(decoder.write(data))
+    });
+
   });
 
 };
