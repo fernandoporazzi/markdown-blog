@@ -12,6 +12,4 @@ hbs.registerPartials('./views/partials');
 app.get('/', router.index);
 app.get('/:entryUri', router.entry);
 
-app.listen(3000);
-
-console.log('Express listening on port 3000 in %s mode', app.settings.env);
+module.exports = app;

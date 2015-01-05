@@ -1,0 +1,24 @@
+#!/usr/bin/env node
+var log = require('winston');
+
+var cluster = require('cluster');
+
+if (cluster.isMaster) {
+
+    var cpuCount = require('os').cpus().length;
+
+    for (var i = 0; i < cpuCount; i += 1) {
+        cluster.fork();
+    }
+
+    cluster.on('exit', function (worker) {
+        console.log('Worker ' + worker.id + ' died :(');
+        cluster.fork();
+    });
+} else {
+    var app = require('../app');
+    app.set('port', process.env.PORT || 3000);
+    var server = app.listen(app.get('port'), function(){
+        log.info("Express server worker %d listening on port %d ", cluster.worker.id, app.get('port'))
+    });
+}

@@ -13,23 +13,17 @@ exports.countEntries = function () {
 exports.getEntry = function (filename) {
 
   var i = 0,
-    l = entries.length,
-    obj = false;
+    l = entries.length;
 
   for (i; i < l; i++) {
 
-    if (entries[i].file === filename) {
+    var entry = entries[i];
 
-      obj = entries[i];
-
-      break;
-
-    }
+    if (entry.file === filename) return entry;
 
   }
 
-  return obj;
-
+  return false;
 };
 
 exports.getEntries = function () {
@@ -37,7 +31,7 @@ exports.getEntries = function () {
   var i = 0,
     entriesPerPage = entries.length,
     data = [];
-  
+
   for (i; i < entriesPerPage; i++) {
 
     data.push(entries[i]);
