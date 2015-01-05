@@ -5,14 +5,11 @@
   "author": "Fernando Porazzi",
   "private": true,
   "scripts": {
-    "start": "supervisor app.js"
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "4.10.6",
     "hbs": "2.8.0",
     "marked": "0.3.2"
-  },
-  "devDependencies": {
-    "supervisor": "0.6.0"
   }
 }
