@@ -364,6 +364,23 @@ h6 {
   list-style: disc;
 }
 
+.pager {
+  margin-top: 70px;
+  padding: 30px;
+}
+
+.pager-nav {
+  position: relative;
+}
+
+.pager-prev {
+  float: left;
+}
+
+.pager-next {
+  float: right;
+}
+
 ::selection {
   background: #fe57a1;
   color: #fff;

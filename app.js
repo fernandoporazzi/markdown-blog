@@ -12,4 +12,6 @@ hbs.registerPartials('./views/partials');
 app.get('/', router.index);
 app.get('/:entryUri', router.entry);
 
+app.get('/page/:page', router.index);
+
 module.exports = app;

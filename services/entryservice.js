@@ -1,14 +1,21 @@
 'use strict';
 
-var entriesList = require('../entriesList');
-
-var entries = entriesList.entries;
+var entriesList = require('../entriesList'),
+  entries = entriesList.entries,
+  entriesPerPage = 3;
 
 exports.countEntries = function () {
 
   return entries.length;
 
 };
+
+exports.totalPages = function () {
+
+  return Math.ceil(entries.length / entriesPerPage);
+
+};
+
 
 exports.getEntry = function (filename) {
 
@@ -24,15 +31,16 @@ exports.getEntry = function (filename) {
   }
 
   return false;
+
 };
 
-exports.getEntries = function () {
+exports.getEntries = function (page) {
 
-  var i = 0,
-    entriesPerPage = entries.length,
+  var i = (page - 1) * entriesPerPage,
+    limit = i + entriesPerPage,
     data = [];
 
-  for (i; i < entriesPerPage; i++) {
+  for (i; i < limit; i++) {
 
     data.push(entries[i]);
 
