@@ -1,8 +1,10 @@
 'use strict';
 
 var entriesList = require('../entriesList'),
+  yaml_config  = require('node-yaml-config'),
   entries = entriesList.entries,
-  entriesPerPage = 3;
+  config = yaml_config.load('./config/config.yml'),
+  entriesPerPage = config.entries.entriesPerPage;
 
 exports.countEntries = function () {
 

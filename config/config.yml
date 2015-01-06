@@ -1,0 +1,3 @@
+default:
+  entries:
+    entriesPerPage: 3
